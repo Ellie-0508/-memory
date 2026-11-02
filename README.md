@@ -1,0 +1,2 @@
+# -memory
+chating Ai
