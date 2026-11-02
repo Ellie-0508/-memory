@@ -1,0 +1,52 @@
+<1DOCTYPE html >
+< html >
+< head >< meta charset =" utf -8">< meta name =" viewport " content =" width = device -
+ Linux 终箱
+ width , initial - scale =1°>
+账户名（随便起，如 alice )
+< title ＞记忆聊天＜/ title >
+默认助手
+酱 style 器
+6 hody { font - family : sans - serif ; max - width :600px; margin :0 auto ; padding :10px}7# log ( height :60vh; overflow : auto ; border : ipx solid # ccc ; padding :8px; margin .
+ bottom :8px; border - radius :8px}
+8. me ( color :#06c; margin :4px0).a1( color :#333; margin :4px0}
+9 input , button ( font -s1ze:16px; padding :8px}
+10</ style ></ head >
+11< hody >
+12<h3＞记忆聊天（账户隔离）</h3>
+13< input id =" acct " placeholder ="账户名(随使起,如 alice )" style =" width :100%; margin -
+ bottom :8px">
+14< div id =" log "></ div >
+15< input id =" msg " placeholder =" Raft &" style =" width :70%">
+16< button onclick =" send ()"＞发送＜/ button >
+17< script >
+18 constaog = document . getElementById (' log ');
+19 function key ){ return ' mem _'+ document . getElementByld (" acct "). value . trim ()}
+20 function load (){ const a = document . getElementById (' acct "). value . trim (); if ( ia ) return ;
+21
+ const h = JSON . parse ( localStorage . getItem ( key ()) Il '[]'); log . innerHTML =';
+22
+ h . forEach ( m => add ( m . role , m . text ));})
+23 function add ( role , text )( const d = document . createElement (' div ');
+24 d . className = role ==' me '?' me ':' ai '; d . textContent =( role ===' me '?'我：':'助
+手：')+ text ; log . appendChild ( d ); log . scrollTop = log . scrollHeight ;}
+25 function send ()( const a = document , getElenentById (' acct '). value . trim ();
+26
+ const m = document . getElementById (' msg '). value . trim (); if ( fa ||! m ) return ;
+27
+ const h = JSON . parse ( localStorage . getItem ( key ()) H '(1');
+28
+ h . push ({ role :' me ', text : m }); localStorage . setItem ( key (). JSON . stringify ( h ));
+29
+ add (' me ', m ); document . getElementById (' msg '). value ='';
+说点什么．..
+30
+/／这重先做个模拟回复（后面可换成真接口）
+31
+ const reply =（已记住，第"+( h . filter ( xrok . role = ss ' me '). length )+'条）你说的是："+ m ;
+32
+ h . push (( rote :' ai ', text : repty )); locaisturage . setltem ( key (),J5ON. stringify ( h )); add (' al 
+', reply );)
+33 document . getElementByld (' acet '). addEventListener (' change ', load );
+34</ seript >
+35</ body > s / ntal >
